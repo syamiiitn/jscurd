@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</head>
+<body onload="getData()">
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-4 h3">Table Form</div>
+            <div class="col-8 text-right">
+                <button type="button" class="btn btn-warning" id="edit" onclick="edits()">edit</button>
+                <button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">add</button>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-12">
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th><input type="checkbox"  onclick="check(checked)"></th>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Body</th>
+                      </tr>
+                    </thead>
+                    <tbody id="tb">
+                   
+                    </tbody>
+                  </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-11 text-right">
+                <button type="button" class="btn btn-danger float-left" id="del" onclick="getDel()" =>delete</button>
+                <button type="button" class="btn btn-info" onclick="previous()" disabled id="prev">prev</button>
+                <button type="button" class="btn btn-info" onclick="next()" id="next">next</button>
+            </div>
+            <div class="col-1">
+                <select  class="form-control bg-light" onchange="setSize(value)">
+                    <option value="5" selected>5</option>
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+  
+
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title"></h4>
+          <button type="button" class="close" onclick="closeModel()">&times;</button>
+        </div>
+        <div class="modal-body">
+          <input type="text" name="id" id="id" placeholder="id" >
+          <input type="text" name="title" id="tt" placeholder="title">
+          <input type="text" name="body" id="bd" placeholder="body">
+          <button type="button" class="btn btn-info" onclick="adds()" id="xadd">add</button>
+          <button type="button" class="btn btn-info" onclick="ups()" id="xedit" style="display: none;">update</button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" onclick="closeModel()">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <script src="aaa.js"></script>
+</body>
+</html>
