@@ -51,6 +51,7 @@ async function ups(){
         document.getElementById('tt').value=''
         document.getElementById('bd').value=''
         document.getElementById("edit").disabled = true;
+        document.getElementById("del").disabled = true;
         count=0;
         closeModel()
         getData()
@@ -87,11 +88,14 @@ async   function adds(){
 
 async function getDel(){
     ids.forEach( async x=>{
-        let response=await fetch(`${url}/${x}`)
+        let response=await fetch(`${url}/${x}`,{
+            method: 'DELETE',
+          })
         console.log(response)
     })
    await getData()
    document.getElementById("del").disabled = true;
+   document.getElementById("edit").disabled = true;
    ids=[]
    count=0
 }
@@ -146,7 +150,7 @@ function counts(val,i){
     }
     if(count==1){
         document.getElementById("edit").disabled = false;
-        document.getElementById("del").disabled = true;
+        document.getElementById("del").disabled = false;
         editData=i;
     }else if(count==0){
         document.getElementById("del").disabled = true;
